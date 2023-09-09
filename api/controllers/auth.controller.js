@@ -30,6 +30,7 @@ export const signin = async (req, res, next) => {
         const expiryDate =  new Date (Date(Date.now()+3600000));
         res.cookie('access_token', token, { httpOnly: true,maxAge:expiryDate }).status(200).json(rest)
     } catch (error) {
+        console.log(error);
         next(error)
     }
 
